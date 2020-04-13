@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D7EAA6DD-6E29-487F-8B35-9AC278B9CC67}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DePeuter.Timesheets</RootNamespace>
+    <AssemblyName>DePeuter.Timesheets</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>43a44669</NuGetPackageImportStamp>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ProjectConfigFileName>App.Config</ProjectConfigFileName>
+    <PublishUrl>\\nuc01\DePeuter\update\DePeuter.Timesheets\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <InstallUrl>http://update.de-peuter.com/DePeuter.Timesheets/</InstallUrl>
+    <ProductName>DePeuter.Timesheets</ProductName>
+    <PublisherName>Rik De Peuter</PublisherName>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>41</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8_timesheet_50_Icd_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2A9D141EC5CACBB9127B873C65FEE8E05EC32181</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>DePeuter.Timesheets_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Premier\SVN\cba\Premier.Billpay 2.5\trunk\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.2.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Constants\CalendarConstants.cs" />
+    <Compile Include="Constants\ShortcutKey.cs" />
+    <Compile Include="Constants\TimesheetType.cs" />
+    <Compile Include="Controls\ExceptionInfo\ExceptionView.xaml.cs">
+      <DependentUpon>ExceptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExceptionInfo\ExceptionViewModel.cs" />
+    <Compile Include="Controls\JobPicker\JobPickerView.xaml.cs">
+      <DependentUpon>JobPickerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\JobPicker\JobPickerViewModel.cs" />
+    <Compile Include="Controls\TimesheetDay\CurrentTimeControl.xaml.cs">
+      <DependentUpon>CurrentTimeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TimesheetDay\TimesheetDayView.xaml.cs">
+      <DependentUpon>TimesheetDayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TimesheetDay\TimesheetDayViewModel.cs" />
+    <Compile Include="Controls\TimesheetDetail\TimesheetDetailView.xaml.cs">
+      <DependentUpon>TimesheetDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TimesheetDetail\TimesheetDetailViewModel.cs" />
+    <Compile Include="Controls\TimesheetsDump\TimesheetsDumpView.xaml.cs">
+      <DependentUpon>TimesheetsDumpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TimesheetsDump\TimesheetsDumpViewModel.cs" />
+    <Compile Include="Controls\Timesheets\TimesheetsCalendarView.xaml.cs">
+      <DependentUpon>TimesheetsCalendarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Timesheets\TimesheetsCalendarViewModel.cs" />
+    <Compile Include="Controls\Timesheets\TimesheetsOverviewDayView.xaml.cs">
+      <DependentUpon>TimesheetsOverviewDayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Timesheets\TimesheetsOverviewDayViewModel.cs" />
+    <Compile Include="Controls\Timesheets\TimesheetsOverviewItemView.xaml.cs">
+      <DependentUpon>TimesheetsOverviewItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Timesheets\TimesheetsOverviewWeekView.xaml.cs">
+      <DependentUpon>TimesheetsOverviewWeekView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Timesheets\TimesheetsOverviewWeekViewModel.cs" />
+    <Compile Include="Controls\Timesheets\TimesheetsView.xaml.cs">
+      <DependentUpon>TimesheetsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Timesheets\TimesheetsViewModel.cs" />
+    <Compile Include="Database\Contexts\TimesheetsContext.cs" />
+    <Compile Include="Database\Services\DbBase.cs" />
+    <Compile Include="Database\Services\TimesheetsDb.cs" />
+    <Compile Include="Database\Services\UpdaterDb.cs" />
+    <Compile Include="Database\DTO\SearchResultBase.cs" />
+    <Compile Include="Database\DTO\TimesheetSearchResult.cs" />
+    <Compile Include="Database\Entities\Configuration.cs" />
+    <Compile Include="Database\Entities\EntityBase.cs" />
+    <Compile Include="Database\Entities\SessionSwitch.cs" />
+    <Compile Include="Database\Entities\Timesheet.cs" />
+    <Compile Include="Database\Entities\Job.cs" />
+    <Compile Include="Infrastructure\Controls\UserControlBase.cs" />
+    <Compile Include="Infrastructure\Session.cs" />
+    <Compile Include="Infrastructure\ViewModel\PickerControlViewModelBase.cs" />
+    <Compile Include="Infrastructure\ViewModel\TabViewModelBase.cs" />
+    <Compile Include="Utils\DtoExtensions.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\TimesheetsRegistry.cs" />
+    <Compile Include="Utils\ViewModelUtils.cs" />
+    <Page Include="Controls\ApplicationList\ApplicationListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ExceptionInfo\ExceptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\JobPicker\JobPickerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TimesheetDay\CurrentTimeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TimesheetDay\TimesheetDayView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TimesheetDetail\TimesheetDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TimesheetsDump\TimesheetsDumpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Timesheets\TimesheetsCalendarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Timesheets\TimesheetsOverviewDayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Timesheets\TimesheetsOverviewItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Timesheets\TimesheetsOverviewWeekView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Timesheets\TimesheetsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\ApplicationList\ApplicationListView.xaml.cs">
+      <DependentUpon>ApplicationListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ApplicationList\ApplicationListViewModel.cs" />
+    <Compile Include="Infrastructure\Configuration\Settings.cs" />
+    <Compile Include="Infrastructure\Controls\ViewModelUserControl.cs" />
+    <Compile Include="Infrastructure\Entities\ApplicationObject.cs" />
+    <Compile Include="Infrastructure\Entities\IsCheckedItem.cs" />
+    <Compile Include="Infrastructure\ViewModel\ControlViewModelBase.cs" />
+    <Compile Include="Infrastructure\ViewModel\ITabViewModel.cs" />
+    <Compile Include="Infrastructure\ViewModel\ViewModelBase.cs" />
+    <Compile Include="MainWindowView.xaml.cs">
+      <DependentUpon>MainWindowView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DePeuter.Timesheets_TemporaryKey.pfx" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\calendar_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cancel_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\contacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\datagrid_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\documen_open_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\excel_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\excel_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\export_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\maximize_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\minimize_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\navigate-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\navigate-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\navigate-up-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\outlook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\outlook_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\priority_high.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\priority_highest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\priority_low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\priority_lowest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\priority_medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\priority_medium3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\process.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\refresh_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\shortcut_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\sort-columns-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\status_closed_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\status_inprogress_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\status_onhold_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\status_open_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\status_test_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\textlist_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\time_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\today.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\undo_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\warning_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DePeuter.DatabaseProvider.MSSQL\DePeuter.DatabaseProvider.MSSQL.csproj">
+      <Project>{cdf406e1-d298-4639-bfc3-c90cc25cccf6}</Project>
+      <Name>DePeuter.DatabaseProvider.MSSQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DePeuter.Shared\DePeuter.Shared.csproj">
+      <Project>{ebfb5034-5f59-4525-b9d2-24dd1a24f83f}</Project>
+      <Name>DePeuter.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DePeuter.Shared.Wpf\DePeuter.Shared.Wpf.csproj">
+      <Project>{bb55a80f-1ccb-48ca-8970-a31f3a1fa2bc}</Project>
+      <Name>DePeuter.Shared.Wpf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_timesheet_50_Icd_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons8-timesheet-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\compress_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\navigate-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\flag_finish_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\swap_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\servicenow_icon16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\expand_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="de\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="es\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="fr\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="hu\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="it\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="pt-BR\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ro\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ru\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="sv\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-Hans\Xceed.Wpf.AvalonDock.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\Web\Microsoft.Web.Publishing.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\Web\Microsoft.Web.Publishing.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="AfterCompile" Condition="exists('app.$(Configuration).config')">
+    <TransformXml Source="app.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="app.$(Configuration).config" />
+    <ItemGroup>
+      <AppConfigWithTargetPath Remove="app.config" />
+      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
+        <TargetPath>$(TargetFileName).config</TargetPath>
+      </AppConfigWithTargetPath>
+      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
+        <TargetPath>$(TargetName).vshost$(TargetExt).config</TargetPath>
+      </AppConfigWithTargetPath>
+    </ItemGroup>
+  </Target>
+</Project>

@@ -1,0 +1,32 @@
+﻿<controls:UserControlBase x:Class="DePeuter.Timesheets.Controls.TimesheetWeek.TimesheetWeekView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:timesheetDay="clr-namespace:DePeuter.Timesheets.Controls.TimesheetDay"
+             xmlns:controls="clr-namespace:DePeuter.Timesheets.Infrastructure.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" MouseWheel="TimesheetWeekView_OnMouseWheel" Loaded="TimesheetWeekView_Loaded">
+    <DockPanel Background="White">
+        <TextBlock DockPanel.Dock="Left" Width="40" Text="{Binding WeekNumber}" FontSize="20" FontWeight="Bold" />
+
+        <ScrollViewer Name="svMain" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <timesheetDay:TimesheetDayView x:Name="day1" Grid.Column="0" Margin="1" DataContext="{Binding Day1}" />
+                <timesheetDay:TimesheetDayView x:Name="day2" Grid.Column="1" Margin="1" DataContext="{Binding Day2}" />
+                <timesheetDay:TimesheetDayView x:Name="day3" Grid.Column="2" Margin="1" DataContext="{Binding Day3}" />
+                <timesheetDay:TimesheetDayView x:Name="day4" Grid.Column="3" Margin="1" DataContext="{Binding Day4}" />
+                <timesheetDay:TimesheetDayView x:Name="day5" Grid.Column="4" Margin="1" DataContext="{Binding Day5}" />
+            </Grid>
+        </ScrollViewer>
+        <!--<controls:OverlaySpinnerPanel DataContext="{Binding}" />-->
+    </DockPanel>
+</controls:UserControlBase>

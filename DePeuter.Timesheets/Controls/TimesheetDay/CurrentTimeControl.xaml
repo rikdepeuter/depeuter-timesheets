@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="DePeuter.Timesheets.Controls.TimesheetDay.CurrentTimeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" VerticalAlignment="Top" Loaded="CurrentTimeControl_OnLoaded">
+    <StackPanel>
+        <Border BorderThickness="0 1 0 0" BorderBrush="Red" IsHitTestVisible="False"></Border>
+        <Grid Margin="0 1 0 0">
+            <TextBlock Name="tbTime" Foreground="Red" HorizontalAlignment="Left" Margin="35 0 0 0" />
+            <WrapPanel HorizontalAlignment="Center" Name="wpButtons">
+                <Button Style="{StaticResource ImageButton}" Click="CompressDay_Click" ToolTip="Compress the day">
+                    <Image Source="{StaticResource Compress16ImageResource}" Width="16" Height="16"></Image>
+                </Button>
+                <Button Style="{StaticResource ImageButton}" Click="SwapLastTimesheets_Click" ToolTip="Swap last 2 timesheets" Margin="3 0">
+                    <Image Source="{StaticResource Swap16ImageResource}" Width="16" Height="16"></Image>
+                </Button>
+                <Button Style="{StaticResource ImageButton}" Click="FinishLastTimesheet_Click" ToolTip="Update last timesheet to now">
+                    <Image Source="{StaticResource FlagFinish16ImageResource}" Width="16" Height="16" />
+                </Button>
+                <Button Style="{StaticResource ImageButton}" Click="NewTimesheetUntilNow_Click" ToolTip="New timesheet from last until now">
+                    <Image Source="{StaticResource AddImageResource}" Width="16" Height="16" />
+                </Button>
+            </WrapPanel>
+        </Grid>
+        
+    </StackPanel>
+</UserControl>

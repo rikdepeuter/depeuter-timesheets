@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="DePeuter.Timesheets.Controls.Timesheets.TimesheetsCalendarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:timesheets="clr-namespace:DePeuter.Timesheets.Controls.Timesheets"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1" Name="cdFridaySaturday" />
+                <ColumnDefinition Width="*" Name="cdSaturday" />
+                <ColumnDefinition Width="1" Name="cdSaturdaySunday" />
+                <ColumnDefinition Width="*" Name="cdSunday" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="2" BorderBrush="LightGray" BorderThickness="1 0 1 1" Padding="3">
+                <TextBlock Text="Mon" FontSize="16" />
+            </Border>
+            <Border Grid.Column="4" BorderBrush="LightGray" BorderThickness="0 0 1 1" Padding="3">
+                <TextBlock Text="Tue" FontSize="16" />
+            </Border>
+            <Border Grid.Column="6" BorderBrush="LightGray" BorderThickness="0 0 1 1" Padding="3">
+                <TextBlock Text="Wed" FontSize="16" />
+            </Border>
+            <Border Grid.Column="8" BorderBrush="LightGray" BorderThickness="0 0 1 1" Padding="3">
+                <TextBlock Text="Thu" FontSize="16" />
+            </Border>
+            <Border Grid.Column="10" BorderBrush="LightGray" BorderThickness="0 0 1 1" Padding="3">
+                <Grid>
+                    <TextBlock Text="Fri" FontSize="16" />
+                    <CheckBox IsChecked="{Binding WeekendIsVisible}" Visibility="{Binding WeekendIsVisible, Converter={StaticResource InvertAndVisibilitate}}" FlowDirection="RightToLeft" VerticalContentAlignment="Center" ToolTip="Show weekend" />
+                </Grid>
+            </Border>
+            <Border Grid.Column="12" BorderBrush="LightGray" BorderThickness="0 0 1 1" Padding="3">
+                <TextBlock Text="Sat" FontSize="16" />
+            </Border>
+            <Border Grid.Column="14" BorderBrush="LightGray" BorderThickness="0 0 1 1" Padding="3">
+                <Grid>
+                    <TextBlock Text="Sun" FontSize="16" />
+                    <CheckBox IsChecked="{Binding WeekendIsVisible}" Visibility="{Binding WeekendIsVisible, Converter={StaticResource Visibilitate}}" FlowDirection="RightToLeft" VerticalContentAlignment="Center" ToolTip="Hide weekend" />
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid>
+            <Grid Name="gSingleWeek" Visibility="{Binding SingleWeek, Converter={StaticResource Visibilitate}}">
+                <timesheets:TimesheetsOverviewWeekView DataContext="{Binding TimesheetsWeeks[0]}" PreviewMouseWheel="TimesheetsCalendarView_PreviewMouseWheel" />
+            </Grid>
+            <Grid Name="gWeeks" Visibility="{Binding SingleWeek, Converter={StaticResource InvertAndVisibilitate}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <timesheets:TimesheetsOverviewWeekView Grid.Row="0" DataContext="{Binding TimesheetsWeeks[0]}" PreviewMouseWheel="TimesheetsCalendarView_PreviewMouseWheel" />
+                <timesheets:TimesheetsOverviewWeekView Grid.Row="1" DataContext="{Binding TimesheetsWeeks[1]}" PreviewMouseWheel="TimesheetsCalendarView_PreviewMouseWheel" />
+                <timesheets:TimesheetsOverviewWeekView Grid.Row="2" DataContext="{Binding TimesheetsWeeks[2]}" PreviewMouseWheel="TimesheetsCalendarView_PreviewMouseWheel" />
+            </Grid>
+        </Grid>
+    </DockPanel>
+</UserControl>

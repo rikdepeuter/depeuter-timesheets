@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BB55A80F-1CCB-48CA-8970-A31F3A1FA2BC}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DePeuter.Shared.Wpf</RootNamespace>
+    <AssemblyName>DePeuter.Shared.Wpf</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>36f5b21e</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="PropertyChanged">
+      <HintPath>..\packages\PropertyChanged.Fody.1.50.3\Lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\CircularProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LoadingPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\AsyncLoader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\OverlayLoadingPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\AsyncSpinner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\OverlaySpinnerPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RichTextEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MessageBoxWpf\MessageBoxWpfWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\InputBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttachedProperties\RichTextboxAssistant.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Controls\AsyncViewModel.cs" />
+    <Compile Include="Controls\AutoDisabledImage.cs" />
+    <Compile Include="Controls\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Infrastructure\ControlViewModelBase.cs" />
+    <Compile Include="Controls\Infrastructure\ControlWindowViewModelBase.cs" />
+    <Compile Include="Controls\Infrastructure\ViewModelBase.cs" />
+    <Compile Include="Controls\Infrastructure\WindowViewModelBase.cs" />
+    <Compile Include="Controls\LoadingPanel.xaml.cs">
+      <DependentUpon>LoadingPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AsyncLoader.xaml.cs">
+      <DependentUpon>AsyncLoader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OverlayLoadingPanel.xaml.cs">
+      <DependentUpon>OverlayLoadingPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AsyncSpinner.xaml.cs">
+      <DependentUpon>AsyncSpinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OverlaySpinnerPanel.xaml.cs">
+      <DependentUpon>OverlaySpinnerPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RichTextEditor.xaml.cs">
+      <DependentUpon>RichTextEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Toolbar2.cs" />
+    <Compile Include="Controls\TreeViewDataItem.cs" />
+    <Compile Include="DependencyProperties\Commands.cs" />
+    <Compile Include="DependencyProperties\SelectingItemAttachedProperty.cs" />
+    <Compile Include="Extensions\BitmapExtensions.cs" />
+    <Compile Include="Extensions\ControlExtensions.cs" />
+    <Compile Include="Controls\LongTextBox.cs" />
+    <Compile Include="Controls\DoubleTextBox.cs" />
+    <Compile Include="Extensions\FlowDocumentExtensions.cs" />
+    <Compile Include="Extensions\IconExtensions.cs" />
+    <Compile Include="Extensions\ToolbarExtensions.cs" />
+    <Compile Include="Extensions\TreeViewExtensions.cs" />
+    <Compile Include="Helpers\BindingProxy.cs" />
+    <Compile Include="Helpers\UIHelpers.cs" />
+    <Compile Include="Internal\Global.cs" />
+    <Compile Include="MessageBoxWpf\MessageBox.cs" />
+    <Compile Include="MessageBoxWpf\MessageBoxWpfButton.cs" />
+    <Compile Include="MessageBoxWpf\MessageBoxWpfWindow.xaml.cs">
+      <DependentUpon>MessageBoxWpfWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controls\SearchTextBox.cs" />
+    <Compile Include="ValueConverters\MinutesDisplayConverter.cs" />
+    <Compile Include="ValueConverters\IsLesserThanOrEqualToConverter.cs" />
+    <Compile Include="ValueConverters\IsLesserThanConverter.cs" />
+    <Compile Include="ValueConverters\IsGreaterThanOrEqualToConverter.cs" />
+    <Compile Include="ValueConverters\IsGreaterThanConverter.cs" />
+    <Compile Include="ValueConverters\CountConverter.cs" />
+    <Compile Include="ValueConverters\IsInThePastConverter.cs" />
+    <Compile Include="ValueConverters\IsNotEqualConverter.cs" />
+    <Compile Include="ValueConverters\IsNullOrEmptyConverter.cs" />
+    <Compile Include="ValueConverters\IsTodayConverter.cs" />
+    <Compile Include="ValueConverters\StringReplaceConverter.cs" />
+    <Compile Include="ValueConverters\StringMaxLengthConverter.cs" />
+    <Compile Include="ValueConverters\BooleanInverterConverter.cs" />
+    <Compile Include="ValueConverters\AnyConverter.cs" />
+    <Compile Include="ValueConverters\IsNotNullConverter.cs" />
+    <Compile Include="ValueConverters\IsNullConverter.cs" />
+    <Compile Include="ValueConverters\MultiBooleanConverter.cs" />
+    <Compile Include="ValueConverters\MultiBooleanToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\ReverseVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\ValueConverterGroup.cs" />
+    <Compile Include="Windows\InputBox.xaml.cs">
+      <DependentUpon>InputBox.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clear.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\search.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Behaviors\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\RichTextEditor\charactergrowfont.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\RichTextEditor\charactershrinkfont.png" />
+    <Resource Include="Images\RichTextEditor\cross.png" />
+    <Resource Include="Images\RichTextEditor\cut.png" />
+    <Resource Include="Images\RichTextEditor\editredo.png" />
+    <Resource Include="Images\RichTextEditor\editundo.png" />
+    <Resource Include="Images\RichTextEditor\page_copy.png" />
+    <Resource Include="Images\RichTextEditor\page_paste.png" />
+    <Resource Include="Images\RichTextEditor\text_align_center.png" />
+    <Resource Include="Images\RichTextEditor\text_align_justify.png" />
+    <Resource Include="Images\RichTextEditor\text_align_left.png" />
+    <Resource Include="Images\RichTextEditor\text_align_right.png" />
+    <Resource Include="Images\RichTextEditor\text_bold.png" />
+    <Resource Include="Images\RichTextEditor\text_indent.png" />
+    <Resource Include="Images\RichTextEditor\text_indent_remove.png" />
+    <Resource Include="Images\RichTextEditor\text_italic.png" />
+    <Resource Include="Images\RichTextEditor\text_list_bullets.png" />
+    <Resource Include="Images\RichTextEditor\text_list_numbers.png" />
+    <Resource Include="Images\RichTextEditor\text_underline.png" />
+    <Resource Include="Images\RichTextEditor\tick.png" />
+    <Resource Include="Images\RichTextEditor\world_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DePeuter.Shared\DePeuter.Shared.csproj">
+      <Project>{ebfb5034-5f59-4525-b9d2-24dd1a24f83f}</Project>
+      <Name>DePeuter.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

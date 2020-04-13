@@ -1,0 +1,167 @@
+﻿<controls:UserControlBase x:Class="DePeuter.Timesheets.Controls.Timesheets.TimesheetsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:controls="clr-namespace:DePeuter.Timesheets.Infrastructure.Controls"
+             xmlns:controls1="clr-namespace:DePeuter.Shared.Wpf.Controls;assembly=DePeuter.Shared.Wpf"
+             xmlns:timesheetDay="clr-namespace:DePeuter.Timesheets.Controls.TimesheetDay"
+             xmlns:timesheetDetail="clr-namespace:DePeuter.Timesheets.Controls.TimesheetDetail"
+             xmlns:custom="clr-namespace:DePeuter.Shared.Wpf.Controls.Custom;assembly=DePeuter.Shared.Wpf"
+             xmlns:timesheets="clr-namespace:DePeuter.Timesheets.Controls.Timesheets"
+             xmlns:timesheetsDump="clr-namespace:DePeuter.Timesheets.Controls.TimesheetsDump"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="1100" DataContextChanged="UserControl_DataContextChanged" LayoutUpdated="TimesheetsView_OnLayoutUpdated">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Left" Margin="0 0 5 0" Width="360">
+            <!--<Grid DockPanel.Dock="Top" Margin="5">
+                <WrapPanel HorizontalAlignment="Center">
+                    <DatePicker Width="120" SelectedDate="{Binding CalendarSelectedDate}" SelectedDateFormat="Short" BorderThickness="0" VerticalAlignment="Center" Margin="0 0 -5 0" IsTodayHighlighted="True" />
+                    <Button Command="{Binding ResetValueCommand}" IsTabStop="False" CommandParameter="CalendarSelectedDate" Style="{StaticResource ImageButton}" VerticalAlignment="Center" ToolTip="Reset value">
+                        -->
+            <!--<Image Source="{StaticResource DeleteImageResource}" Width="16" />-->
+            <!--
+                        <Image Source="{StaticResource TodayImageResource}" Width="16" />
+                    </Button>
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Right">
+                    <Button Content="&lt;" Width="30" Margin="10 0 5 0" Command="{Binding IncrementSelectedDateCommand}" CommandParameter="-1" />
+                    <Button Content="&gt;" Width="30" Command="{Binding IncrementSelectedDateCommand}" CommandParameter="1" />
+                </WrapPanel>
+                -->
+            <!--<TextBlock Text="{Binding TimesheetDayViewModel.Date, StringFormat=dddd\, d MMM}" HorizontalAlignment="Right">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding TimesheetDayViewModel.Date, Converter={StaticResource IsToday}}" Value="True">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>-->
+            <!--
+            </Grid>-->
+
+            <Grid>
+                <DockPanel>
+                    <Grid DockPanel.Dock="Top">
+                        <ToolBarTray IsLocked="True">
+                            <ToolBar Loaded="Toolbar_Loaded">
+                                <Button Command="{Binding CompressCommand}" Style="{StaticResource ImageButton}" ToolTip="Compress the day">
+                                    <Image Source="{StaticResource Compress16ImageResource}" Width="16" Height="16"></Image>
+                                </Button>
+                                <Button Command="{Binding SwapLastTimesheetsCommand}" Style="{StaticResource ImageButton}" ToolTip="Swap last 2 timesheets">
+                                    <Image Source="{StaticResource Swap16ImageResource}" Width="16" Height="16"></Image>
+                                </Button>
+                            </ToolBar>
+                        </ToolBarTray>
+                        <ToolBarTray IsLocked="True" HorizontalAlignment="Right">
+                            <ToolBar Loaded="Toolbar_Loaded">
+                                <Button Command="{Binding ToggleTimesheetsDumpCommand}" IsTabStop="False" Style="{StaticResource ImageButton}" ToolTip="Export to ServiceNow">
+                                    <Grid>
+                                        <!--<Image Source="{StaticResource Calendar16ImageResource}" Width="16" Visibility="{Binding TimesheetsDumpViewModel, Converter={StaticResource IsNotNullVisibilitate}}" />
+                                        <Image Source="{StaticResource ExportImageResource}" Width="16" Visibility="{Binding TimesheetsDumpViewModel, Converter={StaticResource IsNullVisibilitate}}" />-->
+                                        <Image Source="{StaticResource ServiceNow16ImageResource}" Width="16" />
+                                    </Grid>
+                                </Button>
+                            </ToolBar>
+                        </ToolBarTray>
+                    </Grid>
+                    
+                    <timesheetDay:TimesheetDayView x:Name="timesheetDayView1" DataContext="{Binding TimesheetDayViewModel}"
+                                                    ItemsHeight="10" ItemsWidth="300" ConfirmNewTime="False" />
+                </DockPanel>
+                
+                <Grid Visibility="{Binding TimesheetDetailViewModel, Converter={StaticResource IsNotNullVisibilitate}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.RowSpan="2" Background="LightGray" Opacity="0.5" />
+                    <Border Grid.Row="1" Background="White" BorderBrush="DarkGray">
+                        <timesheetDetail:TimesheetDetailView DataContext="{Binding TimesheetDetailViewModel}" />
+                    </Border>
+                </Grid>
+            </Grid>
+        </DockPanel>
+
+        <!--<GroupBox Header="Overview">-->
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <!--<Button DockPanel.Dock="Left" Command="{Binding ToggleTimesheetsDumpCommand}" IsTabStop="False" Style="{StaticResource ImageButton}">
+                    <Grid>
+                        <Image Source="{StaticResource Calendar16ImageResource}" Width="16" Visibility="{Binding TimesheetsDumpViewModel, Converter={StaticResource IsNotNullVisibilitate}}" />
+                        <Image Source="{StaticResource ExportImageResource}" Width="16" Visibility="{Binding TimesheetsDumpViewModel, Converter={StaticResource IsNullVisibilitate}}" />
+                    </Grid>
+                </Button>-->
+                <Button DockPanel.Dock="Left" Command="{Binding ToggleCalendarModeCommand}" IsTabStop="False" Style="{StaticResource ImageButton}">
+                    <Grid>
+                        <Image Source="{StaticResource Calendar16ImageResource}" Width="16" Visibility="{Binding CalendarMode, Converter={StaticResource InvertAndVisibilitate}}" />
+                        <Image Source="{StaticResource TextList16ImageResource}" Width="16" Visibility="{Binding CalendarMode, Converter={StaticResource Visibilitate}}" />
+                    </Grid>
+                </Button>
+                <controls1:SearchTextBox Text="{Binding FilterTimesheets, UpdateSourceTrigger=PropertyChanged}" />
+            </DockPanel>
+
+            <WrapPanel DockPanel.Dock="Top" TextBlock.FontSize="20" Margin="0 3 0 5"
+                       Visibility="{Binding CalendarMode, Converter={StaticResource Visibilitate}}">
+                <Button Command="{Binding GoToTodayCommand}" Style="{StaticResource ImageButton}" Margin="0 0 5 0" Padding="5" VerticalAlignment="Center" Background="#eee" ToolTip="Go to today">
+                    <Image Source="{StaticResource TodayImageResource}" Width="16" Height="16"></Image>
+                </Button>
+                <Button Command="{Binding IncrementWeekCommand}" Style="{StaticResource ImageButton}" CommandParameter="-1" Padding="5" Margin="0 0 1 0" VerticalAlignment="Center" Background="#eee" ToolTip="Go to previous week">
+                    <Image Source="{StaticResource NavigateLeftImageResource}" Width="16" Height="16"></Image>
+                </Button>
+                <Button Command="{Binding IncrementWeekCommand}" Style="{StaticResource ImageButton}" CommandParameter="1" Padding="5" Margin="0 0 5 0" VerticalAlignment="Center" Background="#eee" ToolTip="Go to next week">
+                    <Image Source="{StaticResource NavigateRightImageResource}" Width="16" Height="16"></Image>
+                </Button>
+                <TextBlock Text="Weeks (" />
+                <TextBlock Text="{Binding DateRange}" />
+                <TextBlock Text=")" />
+            </WrapPanel>
+
+            <Grid>
+                <DataGrid ItemsSource="{Binding TimesheetsFiltered}" Visibility="{Binding CalendarMode, Converter={StaticResource InvertAndVisibilitate}}" HeadersVisibility="Column"
+                          AutoGenerateColumns="False" HorizontalGridLinesBrush="LightGray" IsReadOnly="True" IsTextSearchEnabled="False" SelectionUnit="Cell" SelectionMode="Extended" VerticalGridLinesBrush="LightGray"
+                          CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="True" CopyingRowClipboardContent="DataGrid_OnCopyingRowClipboardContent">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding WeekNumber}" Header="Week" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding StartTime, StringFormat='ddd, dd MMM yyyy'}" Header="Date" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding TaskNumber}" Header="TaskNumber" Width="Auto" />
+                        <!--<DataGridTextColumn Binding="{Binding JobCode}" Header="JobCode" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Client}" Header="Client" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Project}" Header="Project" Width="Auto" />-->
+                        <DataGridTextColumn Binding="{Binding StartTimeDisplay}" Header="Start" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding EndTimeDisplay}" Header="End" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding TotalMinutes, Converter={StaticResource MinutesDisplay}}" Header="Duration" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Description}" Header="Description" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <!--<Grid Visibility="{Binding TimesheetsDumpViewModel, Converter={StaticResource IsNotNullVisibilitate}}"
+                      MouseWheel="TimesheetsCalendarOverview_MouseWheel">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <timesheetsDump:TimesheetsDumpView Grid.Row="0" DataContext="{Binding TimesheetsDumpViewModel}" />
+                    <timesheets:TimesheetsCalendarView Grid.Row="2" DataContext="{Binding TimesheetsCalendarViewModel}" />
+                </Grid>-->
+
+                <!--<Grid Visibility="{Binding TimesheetsDumpViewModel, Converter={StaticResource IsNullVisibilitate}}">-->
+                <Grid>
+                    <Grid Visibility="{Binding CalendarMode, Converter={StaticResource Visibilitate}}"
+                          MouseWheel="TimesheetsCalendarOverview_MouseWheel">
+                        <timesheets:TimesheetsCalendarView DataContext="{Binding TimesheetsCalendarViewModel}" />
+                    </Grid>
+                </Grid>
+
+                <custom:OverlaySpinnerPanel DataContext="{Binding}" />
+            </Grid>
+        </DockPanel>
+        <!--</GroupBox>-->
+    </DockPanel>
+</controls:UserControlBase>

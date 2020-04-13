@@ -1,0 +1,54 @@
+﻿<Window x:Class="DePeuter.Timesheets.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:DePeuter.Timesheets.Infrastructure.Controls"
+        xmlns:exceptionInfo="clr-namespace:DePeuter.Timesheets.Controls.ExceptionInfo"
+        Title="DePeuter.Timesheets" Height="700" Width="1000" Loaded="Window_Loaded" WindowState="Maximized" StateChanged="MainWindow_OnStateChanged" PreviewKeyDown="Window_PreviewKeyDown" Icon="icons8_timesheet_50_Icd_icon.ico">
+    <Grid>
+        <DockPanel>
+            <!--<Menu DockPanel.Dock="Top">
+                <MenuItem Header="Timesheets" Command="{Binding OpenViewModelCommand}" CommandParameter="TimesheetsViewModel" />
+                <MenuItem Header="Applications" Command="{Binding OpenViewModelCommand}" CommandParameter="ApplicationListViewModel" />
+            </Menu>-->
+
+            <!--<TextBlock DockPanel.Dock="Top" Text="{Binding SelectedTab.HeaderText}" Padding="5" FontWeight="Bold" Background="LightBlue" />-->
+
+            <TabControl ItemsSource="{Binding Tabs}" SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AllowDrop="True" BorderThickness="0">
+                <TabControl.ItemContainerStyle>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                    </Style>
+                </TabControl.ItemContainerStyle>
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <!--<TextBlock Text="{Binding HeaderText}" Padding="10 0" />-->
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <controls:ViewModelUserControl DataContext="{Binding}" AllowDrop="True"></controls:ViewModelUserControl>
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+        </DockPanel>
+        <Grid Visibility="{Binding ExceptionViewModel, Converter={StaticResource IsNotNullVisibilitate}}">
+            <Grid Background="LightGray" Opacity="0.5" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Border Grid.Column="1" Grid.Row="1" BorderThickness="1" BorderBrush="DarkGray" Padding="5" Background="White">
+                    <exceptionInfo:ExceptionView DataContext="{Binding ExceptionViewModel}" />
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

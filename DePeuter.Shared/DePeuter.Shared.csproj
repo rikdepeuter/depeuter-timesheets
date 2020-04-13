@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBFB5034-5F59-4525-B9D2-24DD1A24F83F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DePeuter.Shared</RootNamespace>
+    <AssemblyName>DePeuter.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Newtonsoft.Json\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Advanced\AppDomain2.cs" />
+    <Compile Include="Advanced\Async.cs" />
+    <Compile Include="Advanced\Convert2.cs" />
+    <Compile Include="Advanced\DelayedAction.cs" />
+    <Compile Include="Advanced\EncodingStringWriter.cs" />
+    <Compile Include="Advanced\Directory2.cs" />
+    <Compile Include="Advanced\File2.cs" />
+    <Compile Include="Advanced\FileSystemWatcher2.cs" />
+    <Compile Include="Advanced\Hash.cs" />
+    <Compile Include="Advanced\Image2.cs" />
+    <Compile Include="Advanced\Math2.cs" />
+    <Compile Include="Advanced\Path2.cs" />
+    <Compile Include="Advanced\Encryption.cs" />
+    <Compile Include="Advanced\SortableBindingList.cs" />
+    <Compile Include="Advanced\Timer2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attributes\ServiceClientAttribute.cs" />
+    <Compile Include="Database\DatabaseProviders.cs" />
+    <Compile Include="Database\Entities.cs" />
+    <Compile Include="Database\Interfaces.cs" />
+    <Compile Include="Database\Queries\QueryObject.cs" />
+    <Compile Include="Database\Queries\UpdateQuery.cs" />
+    <Compile Include="Exceptions\ASyncException.cs" />
+    <Compile Include="Exceptions\CancelException.cs" />
+    <Compile Include="Exceptions\MissingSqlTableAttributeException.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\BlockingCollectionExtensions.cs" />
+    <Compile Include="Extensions\DataReaderExtensions.cs" />
+    <Compile Include="Extensions\DataRowViewExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\ILogExtensions.cs" />
+    <Compile Include="Extensions\ImageExtensions.cs" />
+    <Compile Include="Extensions\LongExtensions.cs" />
+    <Compile Include="Extensions\ObservableCollectionExtensions.cs" />
+    <Compile Include="Extensions\StopwatchExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\XDocumentExtensions.cs" />
+    <Compile Include="Extensions\XElementExtensions.cs" />
+    <Compile Include="Extensions\XmlNodeExtensions.cs" />
+    <Compile Include="Extensions\XNamespaceExtensions.cs" />
+    <Compile Include="Helpers\ArgsHelper.cs" />
+    <Compile Include="Helpers\IniParser.cs" />
+    <Compile Include="Helpers\MainArgs.cs" />
+    <Compile Include="Helpers\MimeTypeMap.cs" />
+    <Compile Include="Helpers\NetbankHelper.cs" />
+    <Compile Include="Helpers\PdfConvert.cs" />
+    <Compile Include="Helpers\VersionInfo.cs" />
+    <Compile Include="IoC\SupplierIoCResolver.cs" />
+    <Compile Include="IoC\DefaultIoCResolver.cs" />
+    <Compile Include="IoC\DatabaseSupplierIoCResolver.cs" />
+    <Compile Include="Managers\TranslationManager.cs" />
+    <Compile Include="Managers\ClientServiceManager.cs" />
+    <Compile Include="REST\Constants.cs" />
+    <Compile Include="REST\RestClient.cs" />
+    <Compile Include="REST\RestException.cs" />
+    <Compile Include="REST\RestRequest.cs" />
+    <Compile Include="REST\RestResponse.cs" />
+    <Compile Include="Spatial\Attributes.cs" />
+    <Compile Include="Spatial\Coordinate.cs" />
+    <Compile Include="Spatial\Geometry.cs" />
+    <Compile Include="Helpers\KeyboardListener.cs" />
+    <Compile Include="Serialization\BinarySerialization.cs" />
+    <Compile Include="Serialization\XmlSerialization.cs" />
+    <Compile Include="Shp\ShapeConverter.cs" />
+    <Compile Include="Shp\ShapeLib.cs" />
+    <Compile Include="Shp\ShpAttributes.cs" />
+    <Compile Include="Spatial\LineString.cs" />
+    <Compile Include="Spatial\Point.cs" />
+    <Compile Include="Spatial\Polygon.cs" />
+    <Compile Include="Xml\Attributes.cs" />
+    <Compile Include="Xml\Xml.cs" />
+    <Compile Include="Cache\Cache.cs" />
+    <Compile Include="Database\IDatabaseProvider.cs" />
+    <Compile Include="Database\Attributes.cs" />
+    <Compile Include="Database\BaseDatabaseService.cs" />
+    <Compile Include="Database\QueryBase.cs" />
+    <Compile Include="Database\Enums.cs" />
+    <Compile Include="Database\Exceptions.cs" />
+    <Compile Include="EF\Trigger.cs" />
+    <Compile Include="EF\Analyzer.cs" />
+    <Compile Include="EF\EF.cs" />
+    <Compile Include="EF\BaseFieldRule.cs" />
+    <Compile Include="Exceptions\CustomInvalidOperationException.cs" />
+    <Compile Include="Exceptions\PropertyException.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
+    <Compile Include="Extensions\AppDomainExtensions.cs" />
+    <Compile Include="Extensions\BitmapExtensions.cs" />
+    <Compile Include="Extensions\ByteExtensions.cs" />
+    <Compile Include="Extensions\ColorExtensions.cs" />
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
+    <Compile Include="Extensions\DataColumnCollectionExtensions.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\DoubleExtensions.cs" />
+    <Compile Include="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Extensions\FileInfoExtensions.cs" />
+    <Compile Include="Extensions\GenericExtensions.cs" />
+    <Compile Include="Extensions\IListExtensions.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
+    <Compile Include="Extensions\DispatcherExtensions.cs" />
+    <Compile Include="Extensions\IDBCommandExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\StringCollectionExtensions.cs" />
+    <Compile Include="Extensions\PropertyInfoExtensions.cs" />
+    <Compile Include="Extensions\DataRowExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\FileSystemWatcherExtensions.cs" />
+    <Compile Include="Extensions\IEnumeratorExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Extensions\MethodInfoExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\XmlDocumentExtensions.cs" />
+    <Compile Include="Extensions\XmlNodeListExtensions.cs" />
+    <Compile Include="Infrastructure\BaseService.cs" />
+    <Compile Include="IoC\Attributes.cs" />
+    <Compile Include="IoC\Exceptions.cs" />
+    <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\Parameters.cs" />
+    <Compile Include="Log\Log.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registry\DePeuterRegistry.cs" />
+    <Compile Include="Request\Request.cs" />
+    <Compile Include="Xml\XmlColor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

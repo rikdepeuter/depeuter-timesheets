@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="DePeuter.Shared.Wpf.Controls.Custom.AsyncLoader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:custom="clr-namespace:DePeuter.Shared.Wpf.Controls.Custom"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+
+        <Style x:Key="panelMessageText" TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="0,11,0,0" />
+            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+        </Style>
+
+        <Style x:Key="panelSubMessageText" TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="0,5" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Visibility="{Binding IsRunning, Converter={StaticResource BooleanToVisibility}}">
+        <Grid Background="LightGray" Opacity="0.5" />
+        <Border BorderBrush="DarkGray" BorderThickness="1" Background="LightGray" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300">
+            <DockPanel Background="Transparent">
+                <Viewbox Width="32" Height="32" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 10">
+                    <custom:CircularProgressBar x:Name="progressBar" />
+                </Viewbox>
+
+                <TextBox x:Name="txtMessage" DockPanel.Dock="Top" IsTabStop="False" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" IsReadOnly="True" Style="{StaticResource panelMessageText}" Text="{Binding Message}" Foreground="Black" />
+                <TextBox x:Name="txtSubMessage" DockPanel.Dock="Top" IsTabStop="False" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" IsReadOnly="True" Style="{StaticResource panelSubMessageText}" Text="{Binding SubMessage}" Foreground="Black" />
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>

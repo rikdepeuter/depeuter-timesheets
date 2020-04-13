@@ -1,0 +1,100 @@
+﻿<controls:UserControlBase x:Class="DePeuter.Timesheets.Controls.TimesheetDetail.TimesheetDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:DePeuter.Timesheets.Infrastructure.Controls"
+             xmlns:controls1="clr-namespace:DePeuter.Shared.Wpf.Controls;assembly=DePeuter.Shared.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" MinHeight="350">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <ToolBarTray IsLocked="True">
+                <ToolBar Loaded="Toolbar_Loaded">
+                    <Button Command="{Binding SaveCommand}" Style="{StaticResource ImageButton}" ToolTip="Save (Ctrl-S)">
+                        <Image Source="{StaticResource SaveImageResource}" Width="16" Height="16"></Image>
+                    </Button>
+                    <Button Command="{Binding CancelCommand}" Style="{StaticResource ImageButton}" ToolTip="Cancel (Ctrl-W)">
+                        <Image Source="{StaticResource Cancel16ImageResource}" Width="16" Height="16"></Image>
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>
+            <ToolBarTray HorizontalAlignment="Right" IsLocked="True">
+                <ToolBar Loaded="Toolbar_Loaded">
+                    <Button Command="{Binding DeleteCommand}" Style="{StaticResource ImageButton}" ToolTip="Delete" Visibility="{Binding Entity.IsNew, Converter={StaticResource InvertAndVisibilitate}}">
+                        <Image Source="{StaticResource DeleteImageResource}" Width="16" Height="16"></Image>
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>
+        </Grid>
+        <StackPanel DockPanel.Dock="Top" Margin="5">
+            <WrapPanel>
+                <CheckBox IsChecked="{Binding IsBreak}" Content="Break" />
+            </WrapPanel>
+
+            <Grid IsEnabled="{Binding IsBreak, Converter={StaticResource BooleanInvert}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="3" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--<TextBlock Grid.Column="0" Grid.Row="2" Text="Job code" />-->
+                <!--<TextBlock Grid.Column="0" Grid.Row="4" Text="Client" />-->
+                <!--<TextBlock Grid.Column="0" Grid.Row="6" Text="Project" />-->
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Task Number" />
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Description" />
+
+                <!--<Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+                    <ListBox Style="{StaticResource HorizontalRadioButtonList}" ItemsSource="{Binding Types}"
+                         DisplayMemberPath="Display" SelectedValuePath="Value" SelectedValue="{Binding Path=SelectedType, UpdateSourceTrigger=PropertyChanged}">
+                    </ListBox>
+                </Grid>-->
+                <!--<DockPanel Grid.Column="2" Grid.Row="2">
+                    <Button DockPanel.Dock="Right" Style="{StaticResource ImageButton}" Command="{Binding AddJobCommand}">
+                        <Image Source="{StaticResource AddImageResource}" Width="16" Height="16"></Image>
+                    </Button>
+                    <Grid>
+                        <jobPicker:JobPickerView DataContext="{Binding JobPickerViewModel}" x:Name="tbJob" />
+                    </Grid>
+                </DockPanel>-->
+                <!--<TextBox Grid.Column="2" Grid.Row="4" Text="{Binding JobPickerViewModel.SelectedItem.Client, Mode=OneWay}" IsReadOnly="True" Background="LightGray" IsTabStop="False" />-->
+                <!--<TextBox Grid.Column="2" Grid.Row="6" Text="{Binding JobPickerViewModel.SelectedItem.Project, Mode=OneWay}" IsReadOnly="True" Background="LightGray" IsTabStop="False" />-->
+                <ComboBox Grid.Column="2" Grid.Row="0" Text="{Binding TaskNumber, UpdateSourceTrigger=PropertyChanged}" Name="tbTaskNumber" IsEditable="True" ItemsSource="{Binding TaskNumbers}" />
+                <TextBox Grid.Column="2" Grid.Row="2" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Name="tbDescription" />
+            </Grid>
+
+            <TextBlock Foreground="Red" Text="{Binding ErrorMessage}" Visibility="{Binding ErrorMessage, Converter={StaticResource IsNotNullVisibilitate}}" />
+        </StackPanel>
+
+        <GroupBox Header="Recently used">
+            <DockPanel>
+                <!--<controls1:SearchTextBox DockPanel.Dock="Top" Text="{Binding FilterTimesheets, UpdateSourceTrigger=PropertyChanged}" />-->
+                <Grid>
+                    <ListBox ItemsSource="{Binding TimesheetsFiltered}" DisplayMemberPath="OverviewDescription" MouseDoubleClick="lbRecentItems_MouseDoubleClick"
+                             SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Use Description" Command="{Binding UseDescriptionCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}" />
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                    <!--<custom:OverlaySpinnerPanel DataContext="{Binding}" />-->
+                </Grid>
+                <!--<DataGrid ItemsSource="{Binding TimesheetsFiltered}" HeadersVisibility="Column"
+                          AutoGenerateColumns="False" HorizontalGridLinesBrush="LightGray" IsReadOnly="True" IsTextSearchEnabled="False" SelectionUnit="Cell" SelectionMode="Extended" VerticalGridLinesBrush="LightGray"
+                          CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CopyingRowClipboardContent="DataGrid_OnCopyingRowClipboardContent">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding TaskNumber}" Header="TaskNumber" Width="Auto" />
+                            <DataGridTextColumn Binding="{Binding Description}" Header="Description" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>-->
+            </DockPanel>
+        </GroupBox>
+    </DockPanel>
+</controls:UserControlBase>

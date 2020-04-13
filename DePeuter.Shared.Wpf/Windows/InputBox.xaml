@@ -1,0 +1,12 @@
+﻿<Window x:Class="DePeuter.Shared.Wpf.Windows.InputBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="Auto" MinWidth="300" SizeToContent="WidthAndHeight" Topmost="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Window.Icon>
+        <BitmapImage UriSource="pack://application:,,,/DePeuter.Shared.Wpf;component/Resources/geoit_16.png"/>
+    </Window.Icon>
+    <StackPanel Margin="5">
+        <TextBox Name="tbInput" />
+        <Button Name="bOK" Content="OK" HorizontalAlignment="Right" Margin="0 5 0 0" Width="70" IsDefault="True" Click="bOK_Click" />
+    </StackPanel>
+</Window>

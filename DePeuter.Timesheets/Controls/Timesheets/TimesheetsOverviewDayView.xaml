@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="DePeuter.Timesheets.Controls.Timesheets.TimesheetsOverviewDayView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:timesheets="clr-namespace:DePeuter.Timesheets.Controls.Timesheets"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" AllowDrop="True" DragEnter="TimesheetsOverviewDayView_OnDragEnter" DragLeave="TimesheetsOverviewDayView_OnDragLeave" 
+             MouseEnter="TimesheetsOverviewDayView_OnMouseEnter" MouseLeave="TimesheetsOverviewDayView_OnMouseLeave">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type timesheets:TimesheetsOverviewItemView}">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="LightSkyBlue" />
+                </Trigger>
+                <DataTrigger Binding="{Binding Type}" Value="1">
+                    <Setter Property="Background" Value="LightGray" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <UserControl.InputBindings>
+        <MouseBinding Gesture="LeftDoubleClick" 
+                      Command="{Binding DataContext.CalendarDayDoubleClickCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type timesheets:TimesheetsView}}}"
+                      CommandParameter="{Binding}" />
+    </UserControl.InputBindings>
+    <!--<UserControl.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Flatten"
+                      Command="{Binding FlattenCommand}"
+                      CommandParameter="{Binding}"/>
+        </ContextMenu>
+    </UserControl.ContextMenu>-->
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ToolTip>
+                <WrapPanel>
+                    <TextBlock Text="Logged in from " />
+                    <TextBlock Text="{Binding StartTime, StringFormat=H:mm}" />
+                    <TextBlock Text=" until " Visibility="{Binding EndTime, Converter={StaticResource IsNotNullVisibilitate}}" />
+                    <TextBlock Text="{Binding EndTime, StringFormat=H:mm}" />
+                </WrapPanel>
+            </Grid.ToolTip>
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Background" Value="WhiteSmoke" />
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding TotalMinutes, Converter={StaticResource IsLesserThanConverter}, ConverterParameter=360}" Value="True"/>
+                                <Condition Binding="{Binding TotalMinutes, Converter={StaticResource IsGreaterThanConverter}, ConverterParameter=0}" Value="True"/>
+                                <Condition Binding="{Binding StartTime, Converter={StaticResource IsToday}}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.Setters>
+                                <Setter Property="Background" Value="#E6746D"/>
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <DockPanel>
+                <DockPanel.Style>
+                    <Style TargetType="DockPanel">
+                        <Setter Property="Margin" Value="2 2 2 1" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsToday}" Value="True">
+                                <Setter Property="Margin" Value="1" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                <Setter Property="Margin" Value="1" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DockPanel.Style>
+
+                <TextBlock DockPanel.Dock="Right" Text="{Binding TotalMinutes, Converter={StaticResource MinutesDisplay}}">
+                </TextBlock>
+                <TextBlock Text="{Binding Date, StringFormat='dd MMM'}" />
+            </DockPanel>
+        </Grid>
+        <ItemsControl Name="icTimesheets" ItemsSource="{Binding Timesheets}" Padding="1" Background="Transparent">
+            <ItemsControl.Style>
+                <Style TargetType="ItemsControl">
+                    <Setter Property="Margin" Value="1 0 1 1" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsToday}" Value="True">
+                            <Setter Property="Margin" Value="0" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Margin" Value="0" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ItemsControl.Style>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <timesheets:TimesheetsOverviewItemView DataContext="{Binding}" MouseLeftButtonDown="TimesheetsOverviewItemView_MouseLeftButtonDown" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DockPanel>
+</UserControl>

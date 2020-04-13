@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="DePeuter.Timesheets.Controls.ExceptionInfo.ExceptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <WrapPanel DockPanel.Dock="Top">
+            <TextBlock Text="An error has occurred: "></TextBlock>
+            <TextBlock Text="{Binding Message}" Foreground="Red"></TextBlock>
+        </WrapPanel>
+        <Button DockPanel.Dock="Bottom" Command="{Binding CloseCommand}" Content="OK"></Button>
+        <TextBox Margin="0 5" Text="{Binding Summary}" IsReadOnly="True" MaxLines="999" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" TextWrapping="Wrap" FontFamily="Consolas"></TextBox>
+    </DockPanel>
+</UserControl>

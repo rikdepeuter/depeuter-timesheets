@@ -1,0 +1,205 @@
+﻿<Application x:Class="DePeuter.Timesheets.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:valueConverters="clr-namespace:DePeuter.Shared.Wpf.ValueConverters;assembly=DePeuter.Shared.Wpf"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             StartupUri="MainWindowView.xaml">
+    <Application.Resources>
+        <BitmapImage x:Key="CloseImageResource" UriSource="pack://application:,,,/Resources/close.png" />
+        <BitmapImage x:Key="DeleteImageResource" UriSource="pack://application:,,,/Resources/delete.png" />
+        <BitmapImage x:Key="CopyImageResource" UriSource="pack://application:,,,/Resources/copy.png" />
+        <BitmapImage x:Key="PasteImageResource" UriSource="pack://application:,,,/Resources/paste.png" />
+        <BitmapImage x:Key="DocumentsImageResource" UriSource="pack://application:,,,/Resources/documents.png" />
+        <BitmapImage x:Key="DocumentOpen16ImageResource" UriSource="pack://application:,,,/Resources/documen_open_16.png" />
+        <BitmapImage x:Key="OpenImageResource" UriSource="pack://application:,,,/Resources/open.png" />
+        <BitmapImage x:Key="TodayImageResource" UriSource="pack://application:,,,/Resources/today.png" />
+        <BitmapImage x:Key="ProfileImageResource" UriSource="pack://application:,,,/Resources/profile.png" />
+        <BitmapImage x:Key="NavigateUpImageResource" UriSource="pack://application:,,,/Resources/navigate-up-icon.png" />
+        <BitmapImage x:Key="NavigateDownImageResource" UriSource="pack://application:,,,/Resources/navigate-down.png" />
+        <BitmapImage x:Key="NavigateRightImageResource" UriSource="pack://application:,,,/Resources/navigate-right.png" />
+        <BitmapImage x:Key="NavigateLeftImageResource" UriSource="pack://application:,,,/Resources/navigate-left.png" />
+        <BitmapImage x:Key="AddImageResource" UriSource="pack://application:,,,/Resources/add.png" />
+        <BitmapImage x:Key="CancelImageResource" UriSource="pack://application:,,,/Resources/cancel.png" />
+        <BitmapImage x:Key="Cancel16ImageResource" UriSource="pack://application:,,,/Resources/cancel_16.png" />
+        <BitmapImage x:Key="HelpImageResource" UriSource="pack://application:,,,/Resources/help.png" />
+        <BitmapImage x:Key="EditImageResource" UriSource="pack://application:,,,/Resources/edit.png" />
+        <BitmapImage x:Key="AboutImageResource" UriSource="pack://application:,,,/Resources/about.png" />
+        <BitmapImage x:Key="ProcessImageResource" UriSource="pack://application:,,,/Resources/process.png" />
+        <BitmapImage x:Key="ExplorerImageResource" UriSource="pack://application:,,,/Resources/folder.png" />
+        <BitmapImage x:Key="RefreshImageResource" UriSource="pack://application:,,,/Resources/refresh.png" />
+        <BitmapImage x:Key="Refresh16ImageResource" UriSource="pack://application:,,,/Resources/refresh_16.png" />
+        <BitmapImage x:Key="OrganizationsImageResource" UriSource="pack://application:,,,/Resources/contacts.png" />
+        <BitmapImage x:Key="Outlook16ImageResource" UriSource="pack://application:,,,/Resources/outlook_16.png" />
+        <BitmapImage x:Key="Shortcut16ImageResource" UriSource="pack://application:,,,/Resources/shortcut_16.png" />
+        <BitmapImage x:Key="Time16ImageResource" UriSource="pack://application:,,,/Resources/time_16.png" />
+        <BitmapImage x:Key="SaveImageResource" UriSource="pack://application:,,,/Resources/save.png" />
+        <BitmapImage x:Key="ExportImageResource" UriSource="pack://application:,,,/Resources/export_16.png" />
+        <BitmapImage x:Key="Calendar16ImageResource" UriSource="pack://application:,,,/Resources/calendar_16.png" />
+        <BitmapImage x:Key="DataGrid16ImageResource" UriSource="pack://application:,,,/Resources/datagrid_16.png" />
+        <BitmapImage x:Key="CheckImageResource" UriSource="pack://application:,,,/Resources/check.png" />
+        <BitmapImage x:Key="Undo16ImageResource" UriSource="pack://application:,,,/Resources/undo_16.png" />
+        <BitmapImage x:Key="Excel16ImageResource" UriSource="pack://application:,,,/Resources/excel_16.png" />
+        <BitmapImage x:Key="Warning16ImageResource" UriSource="pack://application:,,,/Resources/warning_16.png" />
+        <BitmapImage x:Key="TextList16ImageResource" UriSource="pack://application:,,,/Resources/textlist_16.png" />
+        <BitmapImage x:Key="SortColumnsImageResource" UriSource="pack://application:,,,/Resources/sort-columns-icon.png" />
+        <BitmapImage x:Key="Maximize16ImageResource" UriSource="pack://application:,,,/Resources/minimize_16.png" />
+        <BitmapImage x:Key="Minimize16ImageResource" UriSource="pack://application:,,,/Resources/maximize_16.png" />
+        <BitmapImage x:Key="Compress16ImageResource" UriSource="pack://application:,,,/Resources/compress_16.png" />
+        <BitmapImage x:Key="Expand16ImageResource" UriSource="pack://application:,,,/Resources/expand_16.png" />
+        <BitmapImage x:Key="FlagFinish16ImageResource" UriSource="pack://application:,,,/Resources/flag_finish_16.png" />
+        <BitmapImage x:Key="Swap16ImageResource" UriSource="pack://application:,,,/Resources/swap_16.png" />
+        <BitmapImage x:Key="ServiceNow16ImageResource" UriSource="pack://application:,,,/Resources/servicenow_icon16.png" />
+        
+        <BooleanToVisibilityConverter x:Key="Visibilitate"></BooleanToVisibilityConverter>
+        <valueConverters:IsNullConverter x:Key="IsNull" />
+        <valueConverters:IsNotNullConverter x:Key="IsNotNull" />
+        <valueConverters:AnyConverter x:Key="Any" />
+        <valueConverters:CountConverter x:Key="Count" />
+        <valueConverters:BooleanInverterConverter x:Key="BooleanInvert" />
+        <valueConverters:MultiBooleanToVisibilityConverter x:Key="MultiBooleanToVisibility" />
+        <valueConverters:MultiAnyBooleanToVisibilityConverter x:Key="MultiAnyBooleanToVisibility" />
+        <valueConverters:MultiBooleanConverter x:Key="MultiBoolean" />
+        <valueConverters:MultiAnyBooleanConverter x:Key="MultiAnyBoolean" />
+        <valueConverters:StringMaxLengthConverter x:Key="StringMaxLength" />
+        <valueConverters:IsNullOrEmptyConverter x:Key="IsNullOrEmpty" />
+        <valueConverters:IsNotNullAndNotEmptyConverter x:Key="IsNotNullAndNotEmpty" />
+        <valueConverters:IsInThePastConverter x:Key="IsInThePast" />
+        <valueConverters:IsTodayConverter x:Key="IsToday" />
+        <valueConverters:MinutesDisplayConverter x:Key="MinutesDisplay" />
+        <valueConverters:IsLesserThanConverter x:Key="IsLesserThanConverter" />
+        <valueConverters:IsGreaterThanConverter x:Key="IsGreaterThanConverter" />
+
+        <valueConverters:ValueConverterGroup x:Key="InvertAndVisibilitate">
+            <valueConverters:BooleanInverterConverter />
+            <BooleanToVisibilityConverter />
+        </valueConverters:ValueConverterGroup>
+        <valueConverters:ValueConverterGroup x:Key="IsNullVisibilitate">
+            <valueConverters:IsNullConverter />
+            <BooleanToVisibilityConverter />
+        </valueConverters:ValueConverterGroup>
+        <valueConverters:ValueConverterGroup x:Key="IsNotNullVisibilitate">
+            <valueConverters:IsNotNullConverter />
+            <BooleanToVisibilityConverter />
+        </valueConverters:ValueConverterGroup>
+        <valueConverters:ValueConverterGroup x:Key="IsNullOrEmptyVisibilitate">
+            <valueConverters:IsNullOrEmptyConverter />
+            <BooleanToVisibilityConverter />
+        </valueConverters:ValueConverterGroup>
+        <valueConverters:ValueConverterGroup x:Key="IsNotNullAndNotEmptyVisibilitate">
+            <valueConverters:IsNotNullAndNotEmptyConverter />
+            <BooleanToVisibilityConverter />
+        </valueConverters:ValueConverterGroup>
+        <valueConverters:ValueConverterGroup x:Key="AnyVisibilitate">
+            <valueConverters:AnyConverter />
+            <BooleanToVisibilityConverter />
+        </valueConverters:ValueConverterGroup>
+        <valueConverters:ValueConverterGroup x:Key="NotAnyVisibilitate">
+            <valueConverters:AnyConverter />
+            <valueConverters:BooleanInverterConverter />
+            <BooleanToVisibilityConverter />
+        </valueConverters:ValueConverterGroup>
+
+        <system:String x:Key="DateFormat">{0:dd/MM/yyyy}</system:String>
+        <system:String x:Key="DateTimeFormat">{0:dd/MM/yyyy HH:mm}</system:String>
+        <system:String x:Key="TimeFormat">{0:HH:mm}</system:String>
+        
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" x:Key="ImageButton">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <Style x:Key="RadioButtonList" TargetType="{x:Type ListBox}">
+            <!-- ControlTemplate taken from MSDN http://msdn.microsoft.com/en-us/library/ms754242.aspx -->
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border Name="Border" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" CornerRadius="2">
+                            <ScrollViewer Margin="0" Focusable="false">
+                                <StackPanel Margin="2" IsItemsHost="True" />
+                            </ScrollViewer>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type ListBoxItem}" >
+                        <Setter Property="Margin" Value="2" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Border Name="theBorder" Background="Transparent">
+                                        <RadioButton Focusable="False" IsHitTestVisible="False" IsChecked="{TemplateBinding IsSelected}">
+                                            <ContentPresenter />
+                                        </RadioButton>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="HorizontalRadioButtonList" TargetType="{x:Type ListBox}">
+            <!-- ControlTemplate taken from MSDN http://msdn.microsoft.com/en-us/library/ms754242.aspx -->
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border Name="Border" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" CornerRadius="2">
+                            <ScrollViewer Margin="0" Focusable="false">
+                                <WrapPanel Margin="2" IsItemsHost="True" />
+                            </ScrollViewer>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type ListBoxItem}" >
+                        <Setter Property="Margin" Value="2" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Border Name="theBorder" Background="Transparent">
+                                        <RadioButton Focusable="False" IsHitTestVisible="False" IsChecked="{TemplateBinding IsSelected}">
+                                            <ContentPresenter />
+                                        </RadioButton>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

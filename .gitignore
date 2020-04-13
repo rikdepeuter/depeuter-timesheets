@@ -1,0 +1,6 @@
+v16
+bin
+obj
+*.user
+*.suo
+packages

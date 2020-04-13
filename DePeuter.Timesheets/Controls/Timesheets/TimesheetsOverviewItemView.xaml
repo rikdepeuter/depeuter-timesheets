@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="DePeuter.Timesheets.Controls.Timesheets.TimesheetsOverviewItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:timesheets="clr-namespace:DePeuter.Timesheets.Controls.Timesheets"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid ToolTip="{Binding ToolTip}">
+        <Grid.InputBindings>
+            <MouseBinding Gesture="LeftDoubleClick" 
+                            Command="{Binding DataContext.TimesheetDoubleClickCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type timesheets:TimesheetsView}}}"
+                            CommandParameter="{Binding}"/>
+        </Grid.InputBindings>
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Edit"
+                            Command="{Binding DataContext.TimesheetEditCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                            CommandParameter="{Binding}"
+                            Icon="{StaticResource EditImageResource}" />
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <!--<Grid.ToolTip>
+            <StackPanel>
+                <WrapPanel Visibility="{Binding JobCode, Converter={StaticResource IsNotNullAndNotEmptyVisibilitate}}">
+                    <TextBlock Text="{Binding JobCode}" FontWeight="Bold" />
+                    <TextBlock Text=" - " Visibility="{Binding Client, Converter={StaticResource IsNotNullAndNotEmptyVisibilitate}}" />
+                    <TextBlock Text="{Binding Client}" />
+                    <TextBlock Text=", " Visibility="{Binding Project, Converter={StaticResource IsNotNullAndNotEmptyVisibilitate}}" />
+                    <TextBlock Text="{Binding Project}" />
+                </WrapPanel>
+                <TextBlock Text="{Binding TaskNumber}" />
+                <TextBlock Text="{Binding Description}" Visibility="{Binding Description, Converter={StaticResource IsNotNullAndNotEmptyVisibilitate}}" />
+                <WrapPanel>
+                    <TextBlock Text="{Binding StartTime, StringFormat='HH:mm'}" />
+                    <TextBlock Text=" - " />
+                    <TextBlock Text="{Binding EndTime, StringFormat='HH:mm'}" />
+                    <TextBlock Text=" (" />
+                    <TextBlock Text="{Binding TotalMinutes, Converter={StaticResource MinutesDisplay}}" />
+                    <TextBlock Text=")" />
+                </WrapPanel>
+            </StackPanel>
+        </Grid.ToolTip>-->
+
+        <TextBlock Text="{Binding OverviewDescription}" />
+    </Grid>
+</UserControl>

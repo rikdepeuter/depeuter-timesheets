@@ -1,0 +1,14 @@
+﻿<Window x:Class="DePeuter.Shared.Wpf.MessageBoxWpf.MessageBoxWpfWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="" Height="100" Width="300" MinWidth="300" MinHeight="100" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Topmost="True" Icon="/DePeuter.Shared.Wpf;component/Resources/geoit_16.png" PreviewKeyDown="MessageBoxWpfWindow_OnPreviewKeyDown">
+    <DockPanel Margin="10">
+        <DockPanel DockPanel.Dock="Top">
+            <Image DockPanel.Dock="Left" Name="iIcon" VerticalAlignment="Top" Margin="10" Width="32" Height="32" />
+
+            <TextBlock Name="tbMessage" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" />
+        </DockPanel>
+        
+        <WrapPanel Name="wpButtons" Margin="10" HorizontalAlignment="Right" />
+    </DockPanel>
+</Window>

@@ -1,0 +1,22 @@
+﻿<controls:UserControlBase x:Class="DePeuter.Timesheets.Controls.TimesheetDay.TimesheetDayView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:DePeuter.Timesheets.Infrastructure.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <DockPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Name="svMain">
+            <Grid Background="Transparent" Name="gMain" MouseMove="gMain_MouseMove" MouseUp="gMain_MouseUp" MouseLeave="gMain_MouseLeave" MouseEnter="gMain_MouseEnter" MouseDown="gMain_MouseDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition Name="cdContent" />
+                    <ColumnDefinition Width="10" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</controls:UserControlBase>
